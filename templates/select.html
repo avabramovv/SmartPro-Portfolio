@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="select-title">Выберите проект </h1>
+    <form action="/submit_project" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер проекта</th>
+                    <th>Название проекта</th>
+                    <th>Руководитель</th>
+                    <th>Сроки выполнения проекта</th>
+                    <th>Оценка за проект</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for id, project in projects.items() %}
+                <tr onclick="selectProject('{{ project.id }}')">
+                    <td>{{ project.id }}</td>
+                    <td>{{ project.name_ru }}</td>
+                    <td>{{ project.leader }}</td>
+                    <td>С {{ project.start_date }} по {{ project.finish_date }}</td>
+                    <td>{{ project.grade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="hidden" id="selected-project" name="id">
+    </form>
+
+    <script>
+        function selectProject(id) {
+            window.location.href = '/add?id=' + encodeURIComponent(id);
+        }
+    </script>
+</div>
+{% endblock %}

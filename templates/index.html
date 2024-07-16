@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Портфолио{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div id="portfolio-title" class="portfolio-title">
+        <h1>Портфолио</h1>
+    </div>
+
+    <div class="description">
+        <p>
+            Здесь вы можете поделиться пройденными проектами в системе SmartPro.<br>
+        
+            Выбирайте нужные вам проекты, кратко описываете задачи, которые вы
+            выполняли на вашей вакансии, при необходимости прикрепляйте доп. файлы:
+            отчет, отзыв руководителя и т. д.<br>
+        
+            Поделитесь ссылкой на ваше портфолио: сторонний пользователь увидит ваши
+            проекты, оценки за них, а также описанные вами выполненные задачи.
+        </p>
+    </div>
+
+    <!-- Строка поиска -->
+    <div class="search-container">
+        <input type="text" class="search-input" id="search-input" placeholder="Найти" onkeyup="filterProjects()">
+        <select class="sort-select" id="sort-select" onchange="sortProjects()">
+            <option value="name_ru">Упорядочить по названию проекта</option>
+            <option value="grade">Упорядочить по оценке</option>
+            <option value="leader">Упорядочить по имени руководителя</option>
+            <option value="finish_date">Упорядочить по дате окончания</option>
+        </select>
+    </div>
+    
+    <script src="{{ url_for('static', filename='filter_cards.js') }}"></script>
+    <script src="{{ url_for('static', filename='sort_cards.js') }}"></script>
+
+    <div class="card-container">
+        {% for project in projects %}
+            {% include 'card.html' %}
+        {% endfor %}
+
+    </div>
+
+    <div class="button-container">
+        <!-- Вставка кнопки добавить -->
+        <a href="{{ url_for('select_project') }}" class="loginMus__mus-change-account"
+        style="text-decoration: none">
+            <button id="add-card-btn" 
+            class="loginMus__mus-change-button">
+                <div class="loginMus-submit__box">
+                    <div class="loginMus-submit__icon">
+                        <img src="{{ url_for('static', filename='images/plus.svg') }}" alt="icon">
+                    </div>
+                    <p class="loginMus-submit__text">Добавить проект</p>
+                </div>
+            </button>
+        </a>
+
+        <button id="share-btn" class="loginMus__mus-share-button" onclick="copyLink()">
+            <div class="loginMus-submit__box">
+                <div class="loginMus-share__icon">
+                    <img src="{{ url_for('static', filename='images/link_icon_white.png') }}" alt="icon" class="button-icon">
+                </div>
+                <p class="loginMus-submit__text">Поделиться</p>
+            </div>
+        </button>
+    </div>
+
+    <script>
+        function copyLink() {
+            const userId = {{ current_user.id }};
+            const link = window.location.origin + '/shared/' + userId;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Ссылка скопирована в буфер обмена');
+            });
+        }
+    </script>
+
+</div>
+{% endblock %}

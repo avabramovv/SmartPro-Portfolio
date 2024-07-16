@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{card.name_ru}}</h1>
+        <div class="mb-3">
+            <label class="form-label">Вакансия:</label>
+            <p>{{ card.vacancy_name }}</p>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Описание задач вакансии:</label>
+            <p>{{ card.description }}</p>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Прикрепленные файлы:</label>
+            {% if card.files %}
+                <ul>
+                    {% for file in card.files %}
+                        <li><a href="{{ url_for('static', filename=file.split('static/')[-1]) }}" download>{{ file.split('/')[-1] }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Нет прикрепленных файлов</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Ссылка на сторонний ресурс:</label>
+            {% if card.outer_link %}
+                <a href="{{ card.outer_link }}">{{ card.outer_link }}</p>
+            {% else %}
+                <p>Нет прикрепленной ссылки</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <button onclick="window.history.back()" class="btn btn-primary fair-card-btn back">Назад</button>
+        </div>
+    </div>
+{% endblock %}

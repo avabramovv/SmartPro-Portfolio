@@ -1,0 +1,67 @@
+<div _ngcontent-txt-c176="" class="fair-card ng-star-inserted" data-project-id="{{project.id}}">
+    <div _ngcontent-txt-c176="" class="fair-card-head">
+        <img _ngcontent-txt-c176="" src="{{ url_for('static', filename='images/default-card-bg.png') }}" alt="pte-img" class="fair-card-img">
+        <div _ngcontent-txt-c176="" class="fair-card-type-box">
+            <div _ngcontent-txt-c176="" class="fair-card-type">
+                Проект
+            </div>
+        </div>
+    <!---->
+    </div>
+    <div _ngcontent-txt-c176="" class="fair-card-body">
+        <div _ngcontent-txt-c176="" class="fair-card-body-top">
+            <div _ngcontent-txt-c176="" class="fair-card-header">
+                <div _ngcontent-txt-c176="" class="fair-card-num">
+                    № {{project.id}}
+                </div>
+            </div>
+            <a href="{{project.project_link}}" class="fair-card-link">
+                <div _ngcontent-txt-c176="" class="fair-card-title" >
+                    {{project.name_ru}}
+                </div>
+            </a>
+            <div _ngcontent-txt-c176="" class="fair-card-supervisor">
+                Руководитель: {{project.leader}}
+            </div>
+            <div _ngcontent-txt-c176="" class="fair-card-tags">
+                {% for tag in project.tags %}
+                    <div _ngcontent-txt-c176="" class="fair-card-tag">
+                        {{ tag }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div _ngcontent-txt-c176="" class="fair-card-body-bottom">
+            <div _ngcontent-txt-c176="" class="fair-card-info">
+                <div _ngcontent-txt-c176="" class="fair-card-info-item">
+                    <div _ngcontent-txt-c176="" class="fair-card-info-item-title">
+                        Итоговая оценка
+                    </div>
+                    <div _ngcontent-txt-c176="" class="grade">
+                        {{project.grade}}
+                    </div>
+                </div>
+                <div _ngcontent-txt-c176="" class="fair-card-info-item flex">
+                    <div _ngcontent-txt-c176="" class="fair-card-info-item-title">
+                        Срок реализации:
+                    </div>
+                    <div _ngcontent-txt-c176="" class="fair-card-info-date-num flex">
+                        <span _ngcontent-txt-c176="" class="ng-star-inserted">
+                            c {{project.start_date}} по</span>
+                            <!---->
+                            <span _ngcontent-txt-c176="" class="finish-date"> 
+                                {{project.finish_date}}
+                            </span>
+                        <!---->
+                        </div>
+                    </div>
+                </div>
+                <div _ngcontent-txt-c176="" class="fair-card-footer fair-card-footer-grid">
+                    <a _ngcontent-txt-c176="" class="btn btn-primary fair-card-btn"  href="/shared/{{ user.id }}/description?card_id={{ project.id }}">
+                        Ознакомиться подробнее 
+                        <!-- <button></button> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>

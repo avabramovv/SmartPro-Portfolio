@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{project.name_ru}}</h1>
+        <form method="post" action="{{ url_for('add_card') }}" enctype="multipart/form-data">
+
+            <input type="hidden" name="id" value="{{ project.id }}">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Вакансия: {{ project.vacancy_name }}</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Опишите задачи, которые вы выполняли на вашей вакансии</label>
+                <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="files" class="form-label">При желании прикрепите файлы: отчет, отзыв руководителя и т.д.</label>
+                <input type="file" class="form-control" id="files" name="files" multiple>
+            </div>
+
+            <div class="mb-3">
+                <label for="outer_link" class="form-label">Если реализация вашего проекта выложена на стороннем ресурсе,
+                    вы можете оставить ссылку на него</label>
+                <input type="url" class="form-control" id="outer_link" name="outer_link">
+            </div>
+
+            <button type="submit" class="btn2 btn-primary2">Добавить</button>
+        </form>
+    </div>
+{% endblock %}

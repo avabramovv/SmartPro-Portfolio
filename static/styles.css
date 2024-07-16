@@ -1,0 +1,686 @@
+body {
+    font-family: 'Proxima Nova Lt', sans-serif;
+    margin: 0;
+    
+    padding-bottom: 300px;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-info-name {
+    margin: 0;
+    color: black;
+    font-size: 15px;
+}
+
+.user-info-roles {
+    margin: 0;
+    font-size: 12px;
+}
+
+header {
+    background-color: #fafafa; /* Фон цвета */
+    color: #98a4b9; /* Цвет текста */
+    padding: 15px 8; /* Отступы */
+    width: 100%; /* Растянута по всей ширине */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Proxima Nova Lt', sans-serif;
+}
+
+hse-icon {
+    margin-left: 50px; /* Смещаем hse-icon правее от края */
+}
+
+header h1 {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 1em; /* Размер шрифта для заголовка */
+    color: #98a4b9; /* Цвет текста */
+    margin-right: 49em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0 25px;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 19px;
+    position: relative;
+}
+
+
+/*  */
+
+
+/* nav ul {
+    list-style-type: none;
+    margin: 0 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+    position: relative;
+} */
+
+.nav-first:not(:last-child)::after {
+    content: '|'; /* Вертикальная полоска */
+    position: absolute;
+    right: -10px;
+    color: #9fa1b5; /* Цвет полоски */
+}
+
+nav ul li a {
+    color: #9fa1b5; /* Цвет текста */
+    text-decoration: none;
+    font-size: 1em; /* Размер шрифта */
+}
+
+nav ul li a:not(.nav-last):hover {
+    color: #555; /* Цвет текста при наведении */
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #9fa1b5; /* Цвет и толщина полоски */
+    margin: 0; /* Убираем отступы */
+}
+
+/* !!!!!!!!!!! */
+.description {
+    color: #6b6b6b; /* Темно-серый цвет текста */
+    margin-bottom: 20px;
+    margin-top: 0;
+    font-family: 'Proxima Nova Lt', sans-serif;
+}
+
+.description p {
+    line-height: 1.4; /* Увеличение межстрочного отступа */
+}
+
+.portfolio-title {
+    padding-top: 0px
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.card a:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    position: fixed;
+    background-color: #002D6E;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1em;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #59678a;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/*  */
+
+
+/*  cards */
+
+
+.fair-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.fair-card-body-top {
+    flex-grow: 1;
+}
+
+.fair-card-body-bottom {
+    margin-top: auto;
+}
+/*  */
+.fair-card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 0px;
+    font-family: 'Proxima Nova Lt', sans-serif;
+    justify-content: flex-start;
+}
+
+
+.fair-card-head {
+    position: relative;
+}
+
+.fair-card-img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* .fair-card-type-box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #0050cf;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+} */
+.fair-card-type-box {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 36px;
+}
+
+.fair-card-type {
+    padding: 2px 12px;
+    font-family: 'Proxima Nova Lt',sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 36px;
+    color: #fff;
+    background-color: #0050cf;
+}
+
+.fair-card-body {
+    padding: 15px;
+}
+
+.fair-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fair-card-num {
+    font-weight: bold;
+    color: #333333;
+}
+
+.fair-card-link {
+    text-decoration: none;
+}
+
+.fair-card-title {
+    font-size: 1.5em;
+    color: #333333;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.fair-card-supervisor {
+    font-size: 1em;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.fair-card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/* 
+.fair-card-tag {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+} */
+
+.fair-card-tag {
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 1;
+    font-family: 'Proxima Nova Lt', sans-serif;
+    font-weight: 600;
+    color: #0050cf;
+    background-color: #e5edfa;
+    border-radius: 4px;
+}
+
+.fair-card-info {
+    margin-bottom: 10px;
+}
+
+.fair-card-info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.fair-card-info-item-title {
+    /* font-weight: bold; */
+    color: #666666;
+}
+
+.fair-card-info-date-num {
+    color: #666666;
+}
+
+.fair-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .fair-card-btn {
+    background-color: #0050cf;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+} */
+
+.fair-card-btn {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    border-radius: 4px;
+    font-family: 'Proxima Nova Lt' ,sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 0 25px;
+    box-shadow: none;
+    background: #0050cf;
+    border-color: #0050cf;
+    color: #fff;
+}
+
+.back {
+    border-radius: 4px;
+    font-family: 'Proxima Nova Lt' ,sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 0 25px;
+    box-shadow: none;
+    background: #0050cf;
+    border-color: #0050cf;
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.fair-card-btn:hover {
+    background-color: #0050cf;
+}
+
+/*  */
+
+.loginMus__mus-change-account {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loginMus__mus-change-button {
+    background-color: white;
+    border: 2px solid gray;
+    color: black;
+    padding: 10px 40px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.loginMus-submit__box {
+    display: flex;
+    align-items: center;
+}
+
+.loginMus-submit__icon {
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginMus-submit__icon img {
+    filter: grayscale(100%);
+}
+
+.loginMus-submit__text {
+    font-family: 'Proxima Nova Lt', sans-serif;
+    margin: 0;
+}
+
+/*  */
+.loginMus__mus-share-button {
+    background-color: #0050cf;
+    border: 2px solid #0050cf;
+    color: white;
+    padding: 10px 40px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.loginMus-share__icon {
+    /* background-color: lightgray; */
+    /* border-radius: 50%; */
+    padding: 5px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#share-btn {
+    margin-left: auto;
+}
+
+.button-icon {
+    width: 1em; /* Устанавливает ширину иконки равной размеру текста */
+    height: 1em; /* Устанавливает высоту иконки равной размеру текста */
+    font-size: inherit; /* Наследует размер шрифта от родительского элемента */
+}
+/*  */
+
+form {
+    margin-top: 20px;
+}
+
+.form-label {
+    font-family: 'Proxima Nova Lt', sans-serif;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+textarea.form-control {
+    height: auto;
+    resize: vertical;
+}
+
+input[type="file"].form-control {
+    padding: 5px;
+}
+
+.btn-primary2 {
+    background-color: #a5a5a5;
+    border-color:#a5a5a5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary2:hover {
+    background-color: #a2cfff;
+    border-color: #9dccff;
+}
+/*  */
+[data-link] {
+    cursor: pointer;
+}
+/*  */
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.delete-button .fas {
+    color: #666666; /* Цвет иконки */
+}
+
+.delete-button:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Позиция подсказки */
+    left: 50%;
+    margin-left: -60px;
+    width: 120px;
+    transition: opacity 0.3s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/*  */
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#sort-select {
+    width: 28%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2%;
+}
+
+/* Контейнер для заголовка и строки поиска */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Заголовок */
+.header-container .title {
+    flex: 1;
+}
+
+/* Контейнер для строки поиска и списка выбора */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Строка поиска */
+.search-container .search-input {
+    margin-right: 10px; /* Отступ между строкой поиска и списком выбора */
+}
+
+/* Список выбора */
+.search-container .sort-select {
+    flex-shrink: 0;
+}
+
